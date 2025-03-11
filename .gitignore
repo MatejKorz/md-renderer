@@ -35,3 +35,7 @@
 
 /build/
 /.cache/
+
+# CMake
+
+compile_commands.json
