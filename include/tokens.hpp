@@ -1,13 +1,15 @@
 #include <string>
 #include <map>
 
+
 enum class TokenType {
     Heading,
     BoldItalic,
-    BlockQoute,
+    BlockQuote,
     ListItem,
     CodeBlock,
     EscapeChar,
+    Text,
 };
 
 struct Token {
@@ -16,11 +18,14 @@ struct Token {
 };
 
 const std::map<std::string, TokenType> tokenMap = {
+    {"\\", TokenType::EscapeChar},
     {"#", TokenType::Heading},
     {"*", TokenType::BoldItalic},
     {"_", TokenType::BoldItalic},
-    {">", TokenType::BlockQoute},
+    {">", TokenType::BlockQuote},
     {"-", TokenType::ListItem},
     {"`", TokenType::CodeBlock},
-    {"\\", TokenType::EscapeChar},
 };
+
+const std::string escapableChars = "\\`*_{}[]<>()#+-.!|";
+
